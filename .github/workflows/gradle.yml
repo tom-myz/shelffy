@@ -19,7 +19,7 @@ jobs:
         git config --global user.email "myztmm@gmail.com"
         git config --global user.name "tom-myz"
         git commit -a -m “[goJF]”
-        git remote
+        git remote show origin
         git push origin "HEAD:$GITHUB_HEAD_REF"
     - name: Build with Gradle
       run: ./gradlew build
