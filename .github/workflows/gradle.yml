@@ -15,8 +15,6 @@ jobs:
         java-version: 11
     - name: Format Code
       run: |
-        git config --global user.email "myztmm@gmail.com"
-        git config --global user.name "tom-myz"
         git checkout -b "$GITHUB_HEAD_REF"
         ./gradlew googleJavaFormat
         git commit -a -m “[goJF]”
