@@ -18,6 +18,7 @@ jobs:
         ./gradlew googleJavaFormat
         git commit -a -m “[goJF]”
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GIT_AUTHOR_NAME: ${{ secrets.GIT_AUTHOR_NAME }}
+        GIT_AUTHOR_EMAIL: ${{ secrets.GIT_AUTHOR_EMAIL }}
     - name: Build with Gradle
       run: ./gradlew build
