@@ -16,7 +16,7 @@ jobs:
     - name: Format Code
       run: |
         ./gradlew googleJavaFormat
-        git config user.email "shelffy@example.com"
+        git config user.email "myztmm@gmail.com"
         git config user.name "{{ github.actor }}"
         git commit -a -m “[goJF]”
         git push origin "HEAD:$GITHUB_REF"
