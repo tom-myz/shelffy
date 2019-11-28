@@ -1,6 +1,6 @@
 name: Java CI
 
-on: [push]
+on: [pull_request]
 
 jobs:
   build:
@@ -16,9 +16,9 @@ jobs:
     - name: Format Code
       run: |
         ./gradlew googleJavaFormat
-        git config user.email "myztmm@gmail.com"
+        git config user.email {{ github.actor }}
         git config user.name "tom-myz"
         git commit -a -m “[goJF]”
-        git push
+        git push origin HEAD:{{ github.base_ref }}
     - name: Build with Gradle
       run: ./gradlew build
