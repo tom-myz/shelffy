@@ -14,8 +14,10 @@ jobs:
       with:
         java-version: 11
     - name: Format Code
-      run: ./gradlew googleJavaFormat
-    - name: Apply goJF
-      run: git commit -a -m “[goJF]”
+      run: |
+        ./gradlew googleJavaFormat
+        git commit -a -m “[goJF]”
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - name: Build with Gradle
       run: ./gradlew build
