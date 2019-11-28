@@ -20,6 +20,8 @@ jobs:
         git config --global user.name "tom-myz"
         git commit -a -m “[goJF]”
         git checkout -b "$GITHUB_HEAD_REF"
+        git remote show origin
+        git branch -a
         git push origin "$GITHUB_HEAD_REF"
     - name: Build with Gradle
       run: ./gradlew build
