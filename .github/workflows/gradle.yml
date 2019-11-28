@@ -19,6 +19,6 @@ jobs:
         git config user.email "shelffy@example.com"
         git config user.name "{{ github.actor }}"
         git commit -a -m “[goJF]”
-        git push origin "HEAD:${{ github.base_ref }}"
+        git push origin "HEAD:${{ GITHUB_REF }}"
     - name: Build with Gradle
       run: ./gradlew build
