@@ -10,6 +10,5 @@ public class GreetingController {
   @RequestMapping
   public String handle() {
     return "hello";
-
   }
 }
