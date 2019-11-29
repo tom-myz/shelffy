@@ -15,10 +15,11 @@ jobs:
         java-version: 11
     - name: Format Code
       run: |
+        git config --global user.email "myztmm@gmail.com"
+        git config --global user.name "tom-myz"
+        git checkout -b "$GITHUB_HEAD_REF"
         ./gradlew googleJavaFormat
-        git config user.email {{ github.actor }}
-        git config user.name "tom-myz"
         git commit -a -m “[goJF]”
-        git push origin HEAD:{{ github.base_ref }}
+        git push "https://${{secrets.TOKEN}}@github.com/tom-myz/shelffy.git" "$GITHUB_HEAD_REF"
     - name: Build with Gradle
       run: ./gradlew build
