@@ -3,7 +3,7 @@ name: Java CI
 on: [pull_request]
 
 jobs:
-  build:
+  reformat:
 
     runs-on: ubuntu-latest
 
@@ -19,11 +19,10 @@ jobs:
         git config --global user.name "tom-myz"
         git checkout -b "$GITHUB_HEAD_REF"
         ./gradlew googleJavaFormat
-    - name: Try Commit
-      run: git commit -a -m [goJF]
+    - name: Try Commit And Push
+      run: |
+        git commit -a -m [goJF]
+        git push "https://${{secrets.TOKEN}}@github.com/${{github.repository}}.git" "$GITHUB_HEAD_REF"
       continue-on-error: true
-    - name: Push If Necessary
-      run: git push "https://${{secrets.TOKEN}}@github.com/${{github.repository}}.git" "$GITHUB_HEAD_REF"
-      if: success()
     - name: Build with Gradle
       run: ./gradlew build
