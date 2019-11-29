@@ -1,6 +1,5 @@
 package moe.awawa.controller;
 
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -8,10 +7,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("hello")
 public class GreetingController {
 
-    @RequestMapping
-    public String handle() {
-        return "hello";
-    }
-
-    
+  @RequestMapping
+  public String handle() {
+    return "hello";
+  }
 }
