@@ -17,7 +17,7 @@ jobs:
       run: |
         git config --global user.email "myztmm@gmail.com"
         git config --global user.name "tom-myz"
-        git checkout -b "$GITHUB_HEAD_REF"
+        git checkout -b "$GITHUB_HEAD_REF" "origin/$GITHUB_HEAD_REF"
         ./gradlew googleJavaFormat
     - name: Try Commit And Push
       run: |
