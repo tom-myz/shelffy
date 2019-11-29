@@ -18,6 +18,6 @@ jobs:
         git checkout -b "$GITHUB_HEAD_REF"
         ./gradlew googleJavaFormat
         git commit -a -m “[goJF]”
-        git push origin "$GITHUB_HEAD_REF"
+        git push "https://${{secrets.TOKEN}}@github.com/tom-myz/shelffy.git" "$GITHUB_HEAD_REF"
     - name: Build with Gradle
       run: ./gradlew build
